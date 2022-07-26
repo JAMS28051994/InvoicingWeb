@@ -1,0 +1,43 @@
+<div class="row p-4">
+    <h4>Invoice Header Information</h4>
+    <br>
+    <div class="row">
+        <form [formGroup]="invoiceControl">
+            <div class="form-row d-flex">
+                <div class="col-md-2 me-3">
+                    <label for="vendor">Vendor</label>
+                    <select id="vendor" class="form-control" formControlName="vendorId">
+                        <option [ngValue]="null" disabled>Choose a vendor</option>
+                        <option *ngFor="let vendor of vendors" [ngValue]="vendor.id">
+                            {{ vendor.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-2 me-3">
+                    <label for="invoiceNumber">Invoice Number</label>
+                    <input type="text" formControlName="invoiceNumber" class="form-control" id="invoiceNumber"
+                        placeholder="Invoice Number" required>
+                </div>
+                <div class="col-md-2 me-3">
+                    <label for="date">Invoice Date</label>
+                    <input formControlName="date" class="form-control" id="date" placeholder="Invoice Date" type="text"
+                        onfocus="(this.type='date')" id="date">
+                </div>
+            </div>
+            <br>
+            <h5>Detail Lines Information</h5>
+            <div class="form-row d-flex" #detailLinesDiv>
+                <div class="col-md-2 me-3 mb-1">
+                    <label for="vendor">Description</label>
+                </div>
+                <div class="col-md-2 me-3 mb-1">
+                    <label for="vendor">Amount</label>
+                </div>
+                <div class="col-md-2 me-3 mb-1">
+                    <label for="vendor">Total Price</label>
+                </div>
+            </div>
+            <app-invoice-detail-line (emitter)="onSubmit($event)"></app-invoice-detail-line>
+        </form>
+    </div>
+</div>

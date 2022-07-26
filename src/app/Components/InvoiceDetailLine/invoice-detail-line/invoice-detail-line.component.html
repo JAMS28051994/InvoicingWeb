@@ -1,0 +1,31 @@
+<div #container>
+    <div class="form-row d-flex">
+        <div class="col-md-2 me-3 mb-3">
+            <input type="text" class="form-control" id="productDescription_1" placeholder="Product Description"
+                required>
+        </div>
+        <div class="col-md-2 me-3 mb-3">
+            <input type="number" class="form-control" id="amount_1" placeholder="Amount" required>
+        </div>
+        <div class="col-md-2 me-3 mb-3">
+            <input type="number" class="form-control" id="price_1" placeholder="Total Price" required>
+        </div>
+    </div>
+    <ng-template #detailLinesDiv>
+        <div class="form-row d-flex">
+            <div class="col-md-2 me-3 mb-3">
+                <input type="text" class="form-control" id="productDescription_" placeholder="Product Description"
+                    required>
+            </div>
+            <div class="col-md-2 me-3 mb-3">
+                <input type="number" class="form-control" id="amount_" placeholder="Amount" required>
+            </div>
+            <div class="col-md-2 me-3 mb-3">
+                <input type="number" class="form-control" id="price_" placeholder="Total Price" required>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<br>
+<button (click)="duplicateDetailLine()" type="button" class="btn btn-primary me-3">Add new line</button>
+<button class="btn btn-primary" (click)="CreateAndSendDetailLines()">Create invoice</button>
